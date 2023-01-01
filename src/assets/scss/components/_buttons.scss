@@ -1,15 +1,16 @@
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--first-color) !important;
+  background-color: var(--first-color);
   color: #fff;
   padding: 15px 22px;
-  height: 54px !important;
-  border-radius: 0.7rem;
+  height: 54px;
+  border-radius: 8px;
   outline: 0;
   border: 0;
   font-weight: var(--font-semi-bold);
   transition: 0.3s;
+  font-family: var(--body-font);
   cursor: pointer;
 
   &__login {

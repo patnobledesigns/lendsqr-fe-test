@@ -5,6 +5,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import LoginPage from "./pages/authentication/LoginPage";
 
 
 function App() {
@@ -13,15 +15,19 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <h1>HomePage</h1>,
+      element: <DashboardPage />,
     },
     {
       path: "/login",
-      element: <>Login</>,
+      element: <LoginPage />,
     },
     {
-      path: "/dashboard",
-      element: <>Dashboard</>,
+      path: "/users",
+      element: <>Users</>,
+    },
+    {
+      path: "/profile/:id",
+      element: <>User Detail</>,
     },
   ]);
   return (
