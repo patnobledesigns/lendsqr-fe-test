@@ -1,0 +1,76 @@
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 5rem 0 1rem;
+
+  &__title {
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: var(--mb-1);
+  }
+  &__description {
+    font-size: var(--normal-font-size);
+    color: var(--text-color-light);
+    display: block;
+    line-height: var(--line-height);
+    margin-bottom: var(--mb-3);
+  }
+  &__title,
+  &__description {
+    text-align: center;
+  }
+}
+
+.svg {
+  &__color {
+    fill: var(--first-color);
+  }
+  &__blob {
+    fill: var(--first-color-light);
+  }
+  &__img {
+    width: 300px;
+    justify-self: center;
+  }
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  max-width: 968px;
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* For small devices */
+@media screen and (max-width: 360px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .section {
+    padding: 6rem 0 2rem;
+  }
+  .section__description {
+    margin: 0 7rem var(--mb-3);
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .container {
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

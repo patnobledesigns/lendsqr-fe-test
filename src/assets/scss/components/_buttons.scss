@@ -1,0 +1,62 @@
+/*=============== BUTTONS ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color) !important;
+  color: #fff;
+  padding: 15px 22px;
+  height: 54px !important;
+  border-radius: 0.7rem;
+  outline: 0;
+  border: 0;
+  font-weight: var(--font-semi-bold);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &__login {
+    background-color: transparent !important;
+    border: 1px solid #bdbdbd;
+    width: 100%;
+    color: var(--text-color);
+    text-align: center;
+    padding: 15px 50px;
+  }
+
+  &__register {
+    @include displayFlex;
+    width: 100%;
+    color: var(--first-color);
+    text-align: center;
+    padding: 15px 50px;
+  }
+
+  &__header {
+    display: none !important;
+  }
+
+  &-flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 20px 50px;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+  }
+}
+
+.button:disabled {
+  background-color: var(--first-color-lighten);
+}
+
+@media screen and (min-width: 768px) {
+  .button__header {
+    display: flex !important;
+    width: fit-content;
+    box-shadow: 0px 12px 40px rgb(106 82 253 / 30%);
+  }
+  .button__icon:hover {
+    transition: 0.3s;
+    transform: translateX(10px);
+  }
+}

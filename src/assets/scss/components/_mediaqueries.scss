@@ -1,0 +1,33 @@
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+@media screen and (max-width: 360px) {
+}
+
+/* For semi medium devices */
+@media screen and (min-width: 575px) {
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+  .header,
+  .main,
+  .footer__container {
+    padding: 0 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 968px) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+@media screen and (min-width: 1366px) {
+  .header,
+  .main,
+  .footer__container {
+    padding: 0 2rem;
+  }
+}

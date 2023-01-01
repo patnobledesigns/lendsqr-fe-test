@@ -1,0 +1,113 @@
+/*=============== BASE ===============*/
+// @include font("AvenirNextLTPro-Regular", "../../fonts/metropolis/Metropolis-Regular");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  // margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: 0.5s; // For animation dark mode
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--title-color);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a:focus {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+button {
+  text-decoration: none;
+  color: var(--title-color);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+button:focus {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.preloader-wrapper {
+  background: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+}
+
+.preloader-wrapper > .preloader {
+  min-width: 128px; /* image-width of loader */
+  // min-height: 128px; /* image-height of loader */
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+}
