@@ -1,5 +1,6 @@
 .login {
   //   padding-bottom: var(--mb-3);
+  background-color: #fff;
   height: 100vh;
   &__bgContainer {
     display: none;
@@ -22,7 +23,6 @@
     &-title {
       font-weight: var(--font-bold);
       color: #213f7d;
-      padding-bottom: 10px;
     }
     &-subtitle {
       color: #545f7d;
@@ -31,7 +31,7 @@
   &__forgotpass {
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--first-color);
+    color: #39cdcc;
     font-weight: var(--font-semi-bold);
     font-size: 13px;
   }
@@ -78,9 +78,15 @@
   }
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: px) {
   .login {
     grid-template-columns: 1fr 800px;
+    &__container {
+      width: 70%;
+    }
+    &__bgContainer {
+      width: 70%;
+    }
   }
 }
 @media screen and (min-width: 1800px) {

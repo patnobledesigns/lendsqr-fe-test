@@ -1,0 +1,421 @@
+/*=============== HEADER ===============*/
+.header {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: 0.5s; // For animation dark mode
+}
+
+/*=============== SIDEBAR ===============*/
+.sidebar {
+  display: none;
+}
+/*=============== NAV ===============*/
+.nav {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__left {
+    @include displayFlex;
+    gap: 1rem;
+  }
+
+  &__hamburger {
+    display: none;
+    @media screen and (max-width: 820px) {
+      display: block;
+      width: 1.5rem;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 820px) {
+    &__version {
+      padding-left: 30px;
+      padding-right: 30px;
+      color: var(--first-color);
+    }
+    &__organization {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      padding: 4rem 0 3rem;
+      &-name {
+        color: var(--first-color);
+        font-weight: var(--font-bold);
+      }
+      &-icon {
+        width: 12px;
+      }
+    }
+    &__dashboard {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+
+      &-text {
+        color: var(--first-color);
+        opacity: 0.8;
+      }
+      &-icon {
+        width: 12px;
+      }
+    }
+    &__rightInput {
+      display: none;
+    }
+    &__sidebarInput {
+      position: relative;
+      &-btn {
+        position: absolute;
+        bottom: 0;
+        height: 48px;
+        border: none;
+        outline: none;
+        right: 1px;
+        padding: 12px 30px;
+        border-radius: 0 10px 10px 0;
+        background-color: #39cdcc;
+      }
+    }
+    &__sidebar {
+      &-pad {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      scroll-behavior: smooth;
+      overflow-y: auto;
+
+      padding-bottom: 24px;
+      transition: 0.7s;
+      position: absolute;
+      background-color: #fff;
+      z-index: 9999;
+      top: 0;
+      left: -200px;
+      right: 100%;
+      bottom: 0;
+      height: 100vh;
+      &-input {
+        font-size: 16px;
+        outline: none;
+        border: 2px solid rgba(84, 95, 125, 0.15);
+        height: 48px;
+        padding: 12px 30px;
+        margin-top: 5rem;
+        background-color: #fff;
+        border-radius: 10px;
+        width: 100%;
+        font-family: var(--body-font-alt);
+      }
+      &-img {
+        position: absolute;
+        z-index: 999;
+        right: 2rem;
+        top: 2rem;
+        cursor: pointer;
+      }
+      &-links {
+        margin-top: 23px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      &-title {
+        font-weight: var(--font-bold);
+        padding: 1rem 0 0 24px;
+      }
+      .linkactive {
+        background-color: #39cdcd15;
+        font-weight: 600;
+        border-left: 3px solid var(--first-color);
+      }
+      &-link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 60px;
+        padding: 0 30px;
+        opacity: 0.8;
+      }
+      &-link:hover {
+        background-color: #39cdcd15;
+      }
+      &-text {
+        opacity: none;
+        color: var(--first-color);
+      }
+      &-icon {
+        width: 20px;
+      }
+      // show sidebar
+      &-show {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &__logo {
+    &-img {
+      margin-top: 10px;
+      width: 120px;
+    }
+  }
+  &__avatar {
+    @include displayFlex;
+    gap: 10px;
+    cursor: pointer;
+    &-img {
+      width: 45px;
+      border-radius: 100%;
+    }
+    &-name {
+      font-size: 16px;
+      font-weight: var(--font-semi-bold);
+      color: var(--first-color);
+      @include displayFlex;
+    }
+  }
+  &__right {
+    @include displayFlex;
+    gap: 30px;
+    &-input {
+      display: none;
+    }
+    &-docs {
+      text-decoration: underline;
+      color: var(--first-color);
+      font-size: 16px;
+      cursor: pointer;
+    }
+    &-bell {
+      width: 19.67px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* For semi medium devices */
+@media screen and (min-width: 600px) {
+  // show sidebar
+  .nav__sidebar-show {
+    right: 40%;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .nav {
+    &__right {
+      @include displayFlex;
+      gap: 20px;
+      &-docs {
+        display: none;
+      }
+    }
+    &__avatar {
+      &-img {
+        width: 30px;
+      }
+    }
+    &__logo-img {
+      margin-top: 5px;
+      width: 90px;
+    }
+  }
+}
+@media screen and (min-width: 821px) {
+  .nav__version {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: var(--first-color);
+  }
+  .nav__organization {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding: 39px 0 3rem;
+    &-name {
+      color: var(--first-color);
+      font-weight: var(--font-bold);
+    }
+    &-icon {
+      width: 12px;
+    }
+  }
+  .nav__dashboard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+
+    &-text {
+      color: var(--first-color);
+      opacity: 0.8;
+    }
+    &-icon {
+      width: 12px;
+    }
+  }
+  
+  .sidebar {
+    padding: var(--header-height) 0 0 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 0px 5px 20px 0px #0000000a;
+    display: block;
+    background-color: #fff;
+    width: 600px;
+    overflow-y: auto;
+    .nav__sidebar-pad {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    scroll-behavior: smooth;
+    padding-bottom: 24px;
+    background-color: #fff;
+    height: 100vh;
+    .nav__sidebar-input {
+      outline: none;
+      border: 2px solid rgba(84, 95, 125, 0.15);
+      height: 48px;
+      padding: 12px 30px;
+      margin-top: 5rem;
+      background-color: #fff;
+      border-radius: 10px;
+      width: 100%;
+      font-family: var(--body-font-alt);
+    }
+    .nav__sidebar-img {
+      position: absolute;
+      z-index: 999;
+      right: 2rem;
+      top: 2rem;
+      cursor: pointer;
+    }
+    .nav__sidebar-links {
+      margin-top: 23px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .nav__sidebar-title {
+      font-weight: var(--font-bold);
+      padding: 1rem 0 0 30px;
+    }
+    .linkactive {
+      background-color: #39cdcd15;
+      font-weight: 600;
+      border-left: 3px solid var(--first-color);
+    }
+    .nav__sidebar-link:hover {
+      background-color: #39cdcd15;
+    }
+    .nav__sidebar-link {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      height: 60px;
+      padding: 0 30px;
+      opacity: 0.8;
+    }
+    .nav__sidebar-text {
+      opacity: none;
+      color: var(--first-color);
+    }
+    .nav__sidebar-icon {
+      width: 20px;
+    }
+    // show sidebar
+    .nav__sidebar-show {
+      right: 0;
+      left: 0;
+    }
+  }
+  .nav {
+    width: 100%;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    &__rightGroup {
+      @include displayFlex;
+      gap: 2rem;
+    }
+    &__rightInput {
+      position: relative;
+      &-btn {
+        position: absolute;
+        bottom: 0;
+        height: 48px;
+        border: none;
+        outline: none;
+        right: 1px;
+        padding: 12px 24px;
+        border-radius: 0 10px 10px 0;
+        background-color: #39cdcc;
+      }
+    }
+    &__right {
+      @include displayFlex;
+      gap: 1rem;
+      &-input {
+        font-size: 16px;
+        display: block;
+        outline: none;
+        border: none;
+        background-color: #fff;
+        width: 400px;
+        border: 2px solid rgba(84, 95, 125, 0.15);
+        height: 48px;
+        padding: 12px 24px;
+        background-color: #fff;
+        border-radius: 10px;
+        font-family: var(--body-font-alt);
+      }
+    }
+  }
+  .nav__sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    &__rightGroup {
+      gap: 8rem;
+    }
+  }
+}
+@media screen and (min-width: 1366px) {
+  .nav {
+    padding-left: 0;
+    padding-right: 0;
+    &__right {
+      gap: 3rem;
+    }
+  }
+}
+@media screen and (max-width: 930px) {
+  .nav__right-input {
+    width: 300px;
+  }
+}
+
+/* Change background header */
+.scroll-header {
+  box-shadow: 3px 0px 20px 0px #0000000a;
+}

@@ -1,0 +1,102 @@
+.table__container {
+  margin-top: 40px;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  padding: 5px 30px 15px 30px;
+  overflow-x: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  border-radius: 8px;
+  &-icon {
+    margin: 20px;
+  }
+  height: 640px;
+}
+.table-iconmenu {
+    cursor: pointer;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    font-family: var(--body-font-alt);
+    width: 100%;
+}
+
+.styled-table thead tr {
+  text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+  color: #545f7d;
+  padding: 15px 24px;
+  line-height: var(--line-height);
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #213f7d1a;
+}
+
+.styled-table tbody tr:last-child {
+  border-bottom: none;
+}
+// .table-head {
+//   position: relative;
+// }
+.table__head {
+  &-title {
+    width: 100%;
+    color: var(--first-color);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+  }
+}
+
+.table__status-inactive {
+  text-align: center;
+  //   width: 100px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #545f7d;
+  background-color: #545f7d23;
+  font-weight: bold;
+  border-radius: 100px;
+}
+.table__status-pending {
+  text-align: center;
+  //   width: 100px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #e9b200;
+  background-color: #e9b30028;
+  font-weight: bold;
+  border-radius: 100px;
+}
+.table__status-blacklisted {
+  text-align: center;
+  //   width: 100px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #e4033b;
+  background-color: #e4033b2c;
+  font-weight: bold;
+  border-radius: 100px;
+}
+.table__status-active {
+  text-align: center;
+  //   width: 100px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #39cd63;
+  font-weight: bold;
+  background-color: #39cd6325;
+  border-radius: 100px;
+}
+
+@media screen and (min-width: 820px) {
+}
