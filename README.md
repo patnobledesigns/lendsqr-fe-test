@@ -47,16 +47,16 @@ After complete instalation, run project with:
 
 The login project has no backend authentication. Just add any dummy email and password and you will be automatically redirected to the dashboard page.
 
-### PAGES
+### Pages
 
 ```http
-  GET https://kalu-patrick-lendsqr-fe-test.netlify.app
+  https://kalu-patrick-lendsqr-fe-test.netlify.app
 ```
 
 ```http
-  GET https://kalu-patrick-lendsqr-fe-test.netlify.app/users
+  https://kalu-patrick-lendsqr-fe-test.netlify.app/users
 ```
 
 ```http
-  GET https://kalu-patrick-lendsqr-fe-test.netlify.app/users/${id}
+  https://kalu-patrick-lendsqr-fe-test.netlify.app/users/${id}
 ```
