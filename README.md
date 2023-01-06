@@ -31,7 +31,7 @@ Project was built using React with TypeScript and SASS.
   GET https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/${id}
 ```
 
-## Deployment
+## Installation
 
 To install this project dependencies
 
@@ -43,4 +43,20 @@ To install this project dependencies
 After complete instalation, run project with:
 ```bash
   npm run dev
+```
+
+The login project has no backend authentication. Just add any dummy email and password and you will be automatically redirected to the dashboard page.
+
+### PAGES
+
+```http
+  GET https://kalu-patrick-lendsqr-fe-test.netlify.app
+```
+
+```http
+  GET https://kalu-patrick-lendsqr-fe-test.netlify.app/users
+```
+
+```http
+  GET https://kalu-patrick-lendsqr-fe-test.netlify.app/users/${id}
 ```
