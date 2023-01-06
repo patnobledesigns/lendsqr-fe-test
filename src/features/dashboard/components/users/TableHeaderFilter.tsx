@@ -1,6 +1,5 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
-import moment from "moment"; 
 
 
 const TableHeaderFilter = () => {
@@ -34,7 +33,8 @@ const TableHeaderFilter = () => {
                         className="table__form-input"
                         name='date'
                         onChange={date => setSelectedDate(date)}
-                        minDate={moment().toDate()}
+                        maxDate={new Date()}
+
                         scrollableYearDropdown
                     />
                     

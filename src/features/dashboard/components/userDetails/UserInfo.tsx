@@ -4,6 +4,7 @@ import EducationAndEmployment from './EducationAndEmployment';
 import { Tabs } from './DetailBody';
 import Socials from './Socials';
 import Guarantor from './Guarantor';
+import FullUserInfo from './FullUserInfo';
 
 const UserInfo = ({ currentTab }: { currentTab: Tabs; }) => {
     switch (currentTab) {
@@ -14,6 +15,7 @@ const UserInfo = ({ currentTab }: { currentTab: Tabs; }) => {
                     <EducationAndEmployment />
                     <Socials/>
                     <Guarantor/>
+                    <FullUserInfo/>
                 </div>
             );
         case Tabs.DOCUMENTS:

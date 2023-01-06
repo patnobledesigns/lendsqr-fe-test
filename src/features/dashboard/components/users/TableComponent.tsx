@@ -11,7 +11,8 @@ const TableComponent = () => {
   return (
     <div className="table__outer container">
       <div className="table__container" ref={ref}>
-        <table className="styled-table">
+        {isComponentVisible && <TableHeaderFilter />}
+        <table className="styled-table" ref={ref}>
           <thead>
             <tr className='table__row'>
               <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Organization  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
@@ -21,9 +22,10 @@ const TableComponent = () => {
               <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Date joined  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
               <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Status  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
               <th className=""></th>
-              {isComponentVisible && <TableHeaderFilter />}
+
 
             </tr>
+
           </thead>
           <tbody>
             <tr style={{ position: "relative" }}>
