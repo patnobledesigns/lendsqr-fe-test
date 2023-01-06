@@ -3,6 +3,7 @@
   margin-bottom: 40px;
 }
 .table__container {
+  position: relative;
   margin-bottom: 27px;
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   background-color: #fff;
@@ -104,7 +105,7 @@
 .table__filter {
   position: absolute;
   left: 40px;
-  bottom: -510px;
+  bottom: -50px;
   border: 1px solid #545f7d24;
   box-shadow: 3px 5px 20px 0px #0000000a;
   width: 270px;
