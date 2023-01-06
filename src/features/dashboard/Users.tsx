@@ -1,6 +1,7 @@
 import PageLayout from "../../layouts/PageLayout";
-import Analysis from "./components/Analysis";
-import Table from "./components/TableComponent";
+import Analysis from "./components/users/Analysis";
+
+import Table from "./components/users/TableComponent";
 
 
 const Users = () => {
@@ -9,7 +10,6 @@ const Users = () => {
       <Analysis />
       <Table />
     </PageLayout>
-
   );
 };
 

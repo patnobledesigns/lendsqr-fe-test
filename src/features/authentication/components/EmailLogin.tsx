@@ -23,14 +23,15 @@ const EmailLogin = () => {
       .required("Password is required")
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        "Invalid Password"
+        "Invalid Password. Eg. Nigeria@123"
       ),
   });
-
+  const navigate = useNavigate();
 
   const onSubmit = (values: any, onSubmitProps: any) => {
 
     // onSubmitProps.resetForm(true);
+    navigate('/users');
   };
   return (
     <Formik

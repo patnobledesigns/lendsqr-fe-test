@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import CustomerLinks from "./CustomerLinks";
-import BusinessLink from "./BusinessLink";
-import SettingsLinks from "./SettingsLinks";
+import BusinessLink from "./users/BusinessLink";
+import CustomerLinks from "./users/CustomerLinks";
+import SettingsLinks from "./users/SettingsLinks";
+
 
 const MainNavbar = () => {
     const dispatch = useDispatch();

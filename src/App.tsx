@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import UsersPage from "./pages/dashboard/UsersPage";
 import LoginPage from "./pages/authentication/LoginPage";
+import UserDetailsPage from "./pages/dashboard/UserDetailsPage";
 
 
 function App() {
@@ -15,19 +16,15 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <UsersPage />,
-    },
-    {
-      path: "/login",
       element: <LoginPage />,
     },
     {
       path: "/users",
-      element: <>Users</>,
+      element: <UsersPage />,
     },
     {
-      path: "/profile/:id",
-      element: <>User Detail</>,
+      path: "/users/:id",
+      element: <UserDetailsPage />,
     },
   ]);
   return (

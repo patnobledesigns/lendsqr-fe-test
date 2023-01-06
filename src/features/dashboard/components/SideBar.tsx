@@ -1,8 +1,9 @@
 import React from 'react';
-import BusinessLink from './BusinessLink';
-import CustomerLinks from './CustomerLinks';
-import SettingsLinks from './SettingsLinks';
+
 import { Link } from 'react-router-dom';
+import CustomerLinks from './users/CustomerLinks';
+import SettingsLinks from './users/SettingsLinks';
+import BusinessLink from './users/BusinessLink';
 
 const SideBar = ({ children }: { children: React.ReactNode; }) => {
   return (
