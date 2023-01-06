@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TableActions = () => {
+const TableActions = ({ id }: { id: number; }) => {
     return (
         <div className='table__action'>
-         
+
             <div className="table__actioncontainer">
-                <Link to="/users/1">
+                <Link to={`/users/${id}`}>
                     <div className='table__action-container'>
                         <img className="table__action-icon" src="/assets/images/eye.png" alt="eye" />
                         <p className="table__action-text">View Details</p>

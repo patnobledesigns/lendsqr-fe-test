@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import UserInfo from './UserInfo';
+import { fetchUsersById } from '../../hooks/useFetchUsersData';
+
 
 
 export enum Tabs {
@@ -13,11 +15,15 @@ export enum Tabs {
 }
 const DetailBody = () => {
     const [currentTab, setCurrentTab] = React.useState<Tabs>(Tabs.GENERAL_DETAILS);
+
+    const { id } = useParams();
+    const { data, error, isLoading } = fetchUsersById(id!);
+
     return (
         <>
             <div className='detail__header container'>
                 <Link to="/users" className="detail__back">
-                    <img src="/assets/images/leftarrow.png" alt="leftarrow" />
+                    <img src="/assets/images/leftarrow.png" />
                     <p className="detail__back-text">Back to Users</p>
                 </Link>
 
@@ -32,10 +38,11 @@ const DetailBody = () => {
                 <div className="detail__tabcontainer">
                     <div className='detail__tabdetails'>
                         <div className='detail__imgSection'>
-                            <img className="detail__imgSection-img" src="/assets/images/userImg.png" alt="userImg" />
+                            {isLoading && <p className='container'>Loading...</p>}
+                            <img className="detail__imgSection-img" src={data?.data?.profile.avatar} alt="userImg" />
                             <div className='detail__tabinfo'>
-                                <p className='detail__tabinfo-name'>Grace Effiom</p>
-                                <p className='detail__tabinfo-id'>LSQFf587g90</p>
+                                <p className='detail__tabinfo-name'>{data?.data?.profile.lastName} {data?.data?.profile.firstName}</p>
+                                <p className='detail__tabinfo-id'>{data?.data?.orgName}</p>
 
                             </div>
                         </div>
@@ -50,8 +57,8 @@ const DetailBody = () => {
                         </div>
                         <div className="detail__tabdetails-line"></div>
                         <div className='detail__accountInfo'>
-                            <p className="detail__accountInfo-balance">₦200,000.00</p>
-                            <p className='detail__accountInfo-acctno'>9912345678/Providus Bank</p>
+                            <p className="detail__accountInfo-balance">₦{data?.data?.accountBalance}</p>
+                            <p className='detail__accountInfo-acctno'>{data?.data?.accountNumber}/Providus Bank</p>
                         </div>
                     </div>
                     <div className='detail__tabscon'>
@@ -67,7 +74,7 @@ const DetailBody = () => {
                 </div>
             </div>
 
-            <UserInfo currentTab={currentTab}/>
+            <UserInfo currentTab={currentTab} data={data?.data} error={error} isLoading={isLoading} />
         </>
     );
 };

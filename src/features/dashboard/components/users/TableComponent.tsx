@@ -2,12 +2,39 @@ import React from 'react';
 import TableHeaderFilter from './TableHeaderFilter';
 import TableActions from './TableActions';
 import useComponentVisible from '../../hooks/useComponentVisible';
+import { fetchUserData } from '../../hooks/useFetchUsersData';
+import moment from 'moment';
 
 
 const TableComponent = () => {
-  const [showFilter, setShowFilter] = React.useState(false);
+  const [pageCount, setPageCount] = React.useState(10);
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
-  const { ref: actionRef, isComponentVisible: isActionVisible, setIsComponentVisible: setIsActionVisible } = useComponentVisible(false);
+  const { ref: actionRef, isComponentVisible: isActionVisible, setIsComponentVisible: setIsActionVisible } = useComponentVisible(-1);
+
+  const { isLoading, error, data, isFetched } = fetchUserData();
+
+
+  React.useEffect(() => {
+    if (isFetched) {
+      saveUserToLs();
+    }
+  }, [isFetched]);
+  const saveUserToLs = () => {
+    localStorage.setItem('users', JSON.stringify(data?.data));
+  };
+
+  let userData = [];
+  try {
+    const retrievedData = localStorage.getItem('users');
+    const result = JSON.parse(retrievedData!);
+    userData = result.slice(0, pageCount);
+  } catch (error) {
+    userData = data?.data?.slice(0, pageCount);
+  }
+
+  const toggleAction = (value: number, index: number) => {
+    setIsActionVisible(index);
+  };
   return (
     <div className="table__outer container">
       <div className="table__container" ref={ref}>
@@ -15,12 +42,12 @@ const TableComponent = () => {
         <table className="styled-table" ref={ref}>
           <thead>
             <tr className='table__row'>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Organization  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Username  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Email  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Phone number  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Date joined  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
-              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible(prev => !prev)}>Status  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Organization  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Username  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Email  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Phone number  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Date joined  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
+              <th className="table__head"><p className="table__head-title" onClick={() => setIsComponentVisible((prev: boolean) => !prev)}>Status  <img className="nav__sidebar-icon" src="/assets/images/filter-icon.png" alt="sign-out" /></p></th>
               <th className=""></th>
 
 
@@ -28,67 +55,48 @@ const TableComponent = () => {
 
           </thead>
           <tbody>
-            <tr style={{ position: "relative" }}>
+            {/* {isLoading && <h2 className='container'>Loading...</h2>} */}
+            {userData?.length === 0 && <h3>No data found</h3>}
+            {userData?.map((result: any, index: number) => (
 
-              <td>Dom</td>
-              <td>6000</td>
-              <td>6000</td>
-              <td>6000</td>
-              <td>6000</td>
-              <td><p className="table__status-blacklisted">Blacklisted</p></td>
-              <td >
-                <div className="table-iconmenu" onClick={() => setIsActionVisible(prev => !prev)}>
-                  {isActionVisible}
-                  {isActionVisible && <TableActions />}
-                  <img className="table__container-icon" ref={actionRef} src="/assets/images/table-menu.png" alt="table-menu" />
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Melissa Melissa</td>
-              <td>Melissa dsdsdsd</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td><p className="table__status-pending">Pending</p></td>
-              <td className="table-iconmenu"><img className="table__container-icon" src="/assets/images/table-menu.png" alt="table-menu" /></td>
-            </tr>
-            <tr>
-              <td>Melissa Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td><p className="table__status-active">Active</p></td>
-              <td className="table-iconmenu"><img className="table__container-icon" src="/assets/images/table-menu.png" alt="table-menu" /></td>
-            </tr>
-            <tr>
-              <td>Melissa Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td>Melissa</td>
-              <td><p className="table__status-inactive">Inactive</p></td>
-              <td className="table-iconmenu"><img className="table__container-icon" src="/assets/images/table-menu.png" alt="table-menu" /></td>
-            </tr>
+              <tr style={{ position: "relative" }} key={index}>
+
+                <td>{result?.orgName}</td>
+                <td>{result?.userName}</td>
+                <td>{result?.email}</td>
+                <td>{result?.phoneNumber}</td>
+                <td>{moment(result?.lastActiveDate).format('DD-MM-YYYY')}</td>
+                <td><p className="table__status-active">Active</p></td>
+                <td>
+                  <div className="table-iconmenu" onClick={() => toggleAction(Number(result.id), index)}>
+
+                    {index === isActionVisible && <TableActions id={result.id} />}
+                    <img className="table__container-icon" ref={actionRef} src="/assets/images/table-menu.png" alt="table-menu" />
+                  </div>
+                </td>
+              </tr>
+            ))}
+
+
           </tbody>
         </table>
       </div>
       <div className='table__bottom'>
         <div className='table__datacount'>
           <p className="table__datacount-text">Showing</p>
-          <select className='table__datacount-select' name="" id="">
+          <select className='table__datacount-select' onChange={(e) => setPageCount(Number(e.target.value))} id="">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="60">60</option>
+            <option value="70">70</option>
+            <option value="80">80</option>
+            <option value="90">90</option>
             <option value="100">100</option>
-            <option value="100">90</option>
-            <option value="100">80</option>
-            <option value="100">70</option>
-            <option value="100">60</option>
-            <option value="100">50</option>
-            <option value="100">40</option>
-            <option value="100">20</option>
-            <option value="100">10</option>
           </select>
-          <p className="table__datacount-text">out of 100</p>
+          <p className="table__datacount-text">out of {data?.data.length}</p>
         </div>
 
         <div className="table__pagination">

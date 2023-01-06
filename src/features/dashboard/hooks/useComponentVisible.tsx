@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function useComponentVisible(initialIsVisible: boolean) {
+export default function useComponentVisible(initialIsVisible:any) {
     const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
     const ref = useRef<HTMLParagraphElement & HTMLImageElement & HTMLTableElement>(null);
 

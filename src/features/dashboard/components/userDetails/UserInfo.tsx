@@ -6,16 +6,16 @@ import Socials from './Socials';
 import Guarantor from './Guarantor';
 import FullUserInfo from './FullUserInfo';
 
-const UserInfo = ({ currentTab }: { currentTab: Tabs; }) => {
+const UserInfo = ({ currentTab, data, error, isLoading }: { currentTab: Tabs; data: any, error: any, isLoading: boolean; }) => {
     switch (currentTab) {
         case Tabs.GENERAL_DETAILS:
             return (
                 <div className='userinfo__container container'>
-                    <PersonalInformation />
-                    <EducationAndEmployment />
-                    <Socials/>
-                    <Guarantor/>
-                    <FullUserInfo/>
+                    <PersonalInformation data={data} error={error} isLoading={isLoading} />
+                    <EducationAndEmployment data={data} error={error} isLoading={isLoading} />
+                    <Socials data={data} error={error} isLoading={isLoading} />
+                    <Guarantor />
+                    <FullUserInfo />
                 </div>
             );
         case Tabs.DOCUMENTS:
@@ -30,16 +30,8 @@ const UserInfo = ({ currentTab }: { currentTab: Tabs; }) => {
             return <div className='container section'>App and System Tab</div>;
 
         default:
-            break;
+            return null;
     }
-    return (
-        <div className='container'>
-            {
-            }
-
-
-        </div>
-    );
 };
 
 export default UserInfo;

@@ -10,9 +10,9 @@ import LoginPage from "./pages/authentication/LoginPage";
 import UserDetailsPage from "./pages/dashboard/UserDetailsPage";
 
 
-function App() {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+function App() {
   const router = createBrowserRouter([
     {
       path: "/",
