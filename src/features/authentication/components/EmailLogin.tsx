@@ -3,10 +3,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikController from "../../../components/formControl/FormikController";
 import { Link, useNavigate } from "react-router-dom";
-import AlertComponent from "../../../components/AlertComponent";
-import { useSelector, useDispatch } from "react-redux";
 
-import LoadingOverLay from "../../../components/LoadingOverLay";
 
 const EmailLogin = () => {
   const [toggleShowPassword, setToggleShowPassword] = React.useState(false);
@@ -23,7 +20,7 @@ const EmailLogin = () => {
       .required("Password is required")
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        "Invalid Password. Eg. Nigeria@123"
+        "Your password should contain uppercace, special character & number"
       ),
   });
   const navigate = useNavigate();
